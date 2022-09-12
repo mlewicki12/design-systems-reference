@@ -1,0 +1,82 @@
+@use '../../mixins.scss';
+
+:host {
+  --swatch-size: var(--size-12);
+}
+
+// LAYOUT
+main {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: var(--size-5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+section {
+  display: grid;
+  gap: var(--size-6);
+}
+
+.surface-samples {
+  display: grid;
+  grid-template-columns: var(--swatch-size) var(--swatch-size);
+  grid-auto-rows: var(--swatch-size);
+  gap: var(--size-6);
+
+  .surface1 {
+    @include mixins.card(1);
+  }
+  .surface2 {
+    @include mixins.card(2);
+  }
+  .surface3 {
+    @include mixins.card(3, true);
+  }
+  .surface4 {
+    @include mixins.card(4, true);
+  }
+}
+
+.text-samples {
+  display: grid;
+  gap: var(--size-4);
+
+  & > * {
+    @include mixins.heading(2);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--size-2);
+  }
+
+  span {
+    display: inline-block;
+    flex-shrink: 0;
+    inline-size: var(--size-6);
+    block-size: var(--size-6);
+    border-radius: var(--radius-round);
+
+    &.text1 {
+      background-color: var(--text1);
+    }
+    &.text2 {
+      background-color: var(--text2);
+    }
+  }
+}
+
+// THEME
+.brand {
+  color: var(--brand);
+  background-color: var(--brand);
+}
+
+.dot {
+  @include mixins.box-shadow;
+}

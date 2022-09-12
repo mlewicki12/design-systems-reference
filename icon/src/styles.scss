@@ -1,0 +1,24 @@
+@use '../../mixins.scss';
+
+:host {
+  display: grid;
+  place-content: center;
+  --s: var(--icon-size, var(--size-8));
+}
+
+i {
+  display: inline-block;
+  clip-path: content-box;
+  width: var(--s);
+  height: var(--s);
+
+  .icn {
+    color: var(--icon-color, #000);
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+    font-size: var(--s);
+  }
+
+  .caption {
+    @include mixins.sr-only;
+  }
+}
